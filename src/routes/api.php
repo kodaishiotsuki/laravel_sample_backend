@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SclassController;
 use App\Http\Controllers\Api\SectionController;
+use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\SubjectController;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -30,3 +31,10 @@ Route::post('/section/store', [SectionController::class, 'sectionStore']);
 Route::get('/section/edit/{id}', [SectionController::class, 'sectionEdit']);
 Route::post('/section/update/{id}', [SectionController::class, 'sectionUpdate']);
 Route::get('/section/delete/{id}', [SectionController::class, 'sectionDelete']);
+
+//Student Class Routes
+Route::get('/student', [StudentController::class, 'studentIndex']);
+Route::post('/student/store', [StudentController::class, 'studentStore']);
+Route::get('/student/edit/{id}', [StudentController::class, 'studentEdit']);
+Route::post('/student/update/{id}', [StudentController::class, 'studentUpdate']);
+Route::get('/student/delete/{id}', [StudentController::class, 'studentDelete']);
