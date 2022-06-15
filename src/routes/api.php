@@ -19,6 +19,6 @@ Route::get('/class/delete/{id}', [SclassController::class, 'Delete']);
 //Subject Class Routes
 Route::get('/subject', [SubjectController::class, 'Index']);
 Route::post('/subject/store', [SubjectController::class, 'Store']);
-Route::get('/class/edit/{id}', [SclassController::class, 'Edit']);
-Route::post('/class/update/{id}', [SclassController::class, 'Update']);
-Route::get('/class/delete/{id}', [SclassController::class, 'Delete']);
+Route::get('/subject/edit/{id}', [SubjectController::class, 'subEdit']);
+Route::post('/subject/update/{id}', [SubjectController::class, 'Update']);
+Route::get('/subject/delete/{id}', [SubjectController::class, 'Delete']);

@@ -32,4 +32,29 @@ class SubjectController extends Controller
         ]);
         return response('Student Subject Inserted Successfully');
     }
+
+
+    public function subEdit($id)
+    {
+        $subject = Subject::findOrFail($id); //一致するidが見つからない場合はエラーを返す
+        return response()->json($subject);
+    }
+
+    public function Update(Request $request, $id)
+    {
+        //update
+        Subject::findOrFail($id)->update([
+            'class_id' => $request->class_id,
+            'subject_name' => $request->subject_name,
+            'subject_code' => $request->subject_code,
+        ]);
+        return response('Student Subject Updated Successfully');
+    }
+
+    public function Delete($id)
+    {
+        //delete
+        Subject::findOrFail($id)->delete();
+        return response('Student Subject Deleted Successfully');
+    }
 }

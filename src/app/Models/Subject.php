@@ -9,5 +9,10 @@ class Subject extends Model
 {
     use HasFactory;
 
-    protected $guard = [];
+    // protected $guard = [];
+    protected $fillable = [
+        'class_id',
+        'subject_name',
+        'subject_code'
+    ];
 }
