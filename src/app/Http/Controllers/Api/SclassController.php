@@ -13,4 +13,24 @@ class SclassController extends Controller
         $sclass = Sclass::latest()->get();
         return response()->json($sclass);
     }
+
+    public function Store(Request $request)
+    {
+        //バリデーション
+        $validateDate = $request->validate([
+            'class_name' => 'required | max:25'
+        ]);
+
+        //insert
+        Sclass::insert([
+            'class_name' => $request->class_name,
+        ]);
+        return response('Student Class Inserted Successfully');
+    }
+
+    public function Edit($id)
+    {
+        $sclass = Sclass::findOrFail($id); //一致するidが見つからない場合はエラーを返す
+        return response()->json($sclass);
+    }
 }
