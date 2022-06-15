@@ -45,8 +45,14 @@ class SectionController extends Controller
         Section::findOrFail($id)->update([
             'class_id' => $request->class_id,
             'section_name' => $request->section_name,
-            'updated_at' => Carbon::now(),
         ]);
         return response('Student Section Updated Successfully');
+    }
+
+    public function sectionDelete($id)
+    {
+        //delete
+        Section::findOrFail($id)->delete();
+        return response('Student Section Deleted Successfully');
     }
 }

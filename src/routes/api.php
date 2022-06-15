@@ -29,4 +29,4 @@ Route::get('/section', [SectionController::class, 'sectionIndex']);
 Route::post('/section/store', [SectionController::class, 'sectionStore']);
 Route::get('/section/edit/{id}', [SectionController::class, 'sectionEdit']);
 Route::post('/section/update/{id}', [SectionController::class, 'sectionUpdate']);
-Route::get('/section/delete/{id}', [SectionController::class, 'Delete']);
+Route::get('/section/delete/{id}', [SectionController::class, 'sectionDelete']);
