@@ -18,7 +18,7 @@ class SclassController extends Controller
     {
         //バリデーション
         $validateDate = $request->validate([
-            'class_name' => 'required | max:25'
+            'class_name' => 'required |unique:sclasses| max:25'
         ]);
 
         //insert
@@ -32,5 +32,21 @@ class SclassController extends Controller
     {
         $sclass = Sclass::findOrFail($id); //一致するidが見つからない場合はエラーを返す
         return response()->json($sclass);
+    }
+
+    public function Update(Request $request, $id)
+    {
+        //update
+        Sclass::findOrFail($id)->update([
+            'class_name' => $request->class_name,
+        ]);
+        return response('Student Class Updated Successfully');
+    }
+
+    public function Delete($id)
+    {
+        //delete
+        Sclass::findOrFail($id)->delete();
+        return response('Student Class Deleted Successfully');
     }
 }
